@@ -3,6 +3,7 @@ import { Heading } from "@/components/ui/heading";
 import { Input, InputGroup } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { getAllServices } from "@/db/queries/services";
+import { getImageUrl } from "@/utils/supabase/storage/url";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -47,7 +48,11 @@ export default async function DashboardServicesPage() {
 							<div key={service.title} className="flex gap-6 py-6">
 								<div className="w-32 shrink-0">
 									<Link href="#" aria-hidden="true">
-										<div className="aspect-[3/2] bg-gray-50 rounded-lg shadow" />
+										<img
+											src={getImageUrl(service.icon)}
+											alt=""
+											className="aspect-[3/2] bg-gray-50 rounded-lg shadow"
+										/>
 									</Link>
 								</div>
 								<div className="space-y-1.5">

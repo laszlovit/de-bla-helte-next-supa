@@ -12,14 +12,14 @@ import { Field, FieldGroup, Fieldset, Label } from "@/components/ui/fieldset";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-import { insertServiceForm } from "@/app/lib/server/services/service-service";
+import { insertServiceFormAction } from "@/app/lib/server/services/service-service";
 
 export default function InsertServiceForm() {
 	// eslint-disable-next-line prefer-const
 	let [isOpen, setIsOpen] = useState(false);
 
 	async function submit(form: FormData) {
-		await insertServiceForm(form);
+		await insertServiceFormAction(form);
 	}
 
 	return (
@@ -31,18 +31,26 @@ export default function InsertServiceForm() {
 				<form action={submit}>
 					<DialogTitle>Create service</DialogTitle>
 					<DialogDescription>
-						Enter the service&apos;s name and content to create a new service.
+						Enter the service&apos;s title and content to create a new service.
 					</DialogDescription>
 					<DialogBody>
 						<Fieldset>
 							<FieldGroup>
 								<Field>
-									<Label>Name</Label>
-									<Input name="name" type="string" required />
+									<Label>Title</Label>
+									<Input name="title" type="string" required />
 								</Field>
 								<Field>
 									<Label>Content</Label>
 									<Input name="content" type="text" required />
+								</Field>
+								<Field>
+									<Label>Icon</Label>
+									<Input name="icon" type="file" required />
+								</Field>
+								<Field>
+									<Label>Main image</Label>
+									<Input name="mainImage" type="file" required />
 								</Field>
 							</FieldGroup>
 						</Fieldset>
