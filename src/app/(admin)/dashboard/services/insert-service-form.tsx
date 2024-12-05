@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 import { insertServiceFormAction } from "@/app/lib/server/services/service-service";
+import { Editor } from "@/components/DynamicEditor";
 
 export default function InsertServiceForm() {
 	// eslint-disable-next-line prefer-const
@@ -42,7 +43,8 @@ export default function InsertServiceForm() {
 								</Field>
 								<Field>
 									<Label>Content</Label>
-									<Input name="content" type="text" required />
+									<Input name="content" type="text" required className="hidden" />
+									<Editor onChange={() => {}} />
 								</Field>
 								<Field>
 									<Label>Icon</Label>
