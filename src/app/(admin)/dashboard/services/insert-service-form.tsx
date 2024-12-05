@@ -13,13 +13,15 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
 import { insertServiceFormAction } from "@/app/lib/server/services/service-service";
-import { Editor } from "@/components/DynamicEditor";
+import { Editor } from "@/components/dynamic-editor";
 
 export default function InsertServiceForm() {
 	// eslint-disable-next-line prefer-const
 	let [isOpen, setIsOpen] = useState(false);
+	const [editorContent, setEditorContent] = useState("");
 
 	async function submit(form: FormData) {
+		form.set("content", editorContent);
 		await insertServiceFormAction(form);
 	}
 
@@ -43,8 +45,15 @@ export default function InsertServiceForm() {
 								</Field>
 								<Field>
 									<Label>Content</Label>
-									<Input name="content" type="text" required className="hidden" />
-									<Editor onChange={() => {}} />
+									<Input
+										name="content"
+										type="text"
+										required
+										className="hidden"
+										value={editorContent}
+										readOnly
+									/>
+									<Editor onChange={(value) => setEditorContent(value)} />
 								</Field>
 								<Field>
 									<Label>Icon</Label>

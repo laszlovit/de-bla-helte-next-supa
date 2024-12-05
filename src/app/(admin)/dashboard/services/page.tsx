@@ -1,3 +1,4 @@
+import RenderContent from "@/components/render-content";
 import { Divider } from "@/components/ui/divider";
 import { Heading } from "@/components/ui/heading";
 import { Input, InputGroup } from "@/components/ui/input";
@@ -59,7 +60,9 @@ export default async function DashboardServicesPage() {
 									<div className="text-base/6 font-semibold">
 										<Link href="">{service.title}</Link>
 									</div>
-									<div className="text-xs/6 text-zinc-500">{service.content}</div>
+									<div className="text-xs/6 text-zinc-500">
+										<RenderContent content={JSON.parse(service.content)} />
+									</div>
 								</div>
 							</div>
 							<div className="flex items-center gap-4">
