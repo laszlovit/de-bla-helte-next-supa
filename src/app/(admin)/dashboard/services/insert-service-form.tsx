@@ -30,7 +30,7 @@ export default function InsertServiceForm() {
 			<Button type="button" onClick={() => setIsOpen(true)}>
 				Create service
 			</Button>
-			<Dialog open={isOpen} onClose={setIsOpen} size="4xl">
+			<Dialog open={isOpen} onClose={setIsOpen} size="3xl">
 				<form action={submit}>
 					<DialogTitle>Create service</DialogTitle>
 					<DialogDescription>
