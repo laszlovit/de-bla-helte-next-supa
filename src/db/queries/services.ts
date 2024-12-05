@@ -7,8 +7,8 @@ export async function getAllServices(): Promise<SelectServices[]> {
 }
 
 export async function getServiceById(id: SelectServices["id"]): Promise<SelectServices> {
-	const result = await db.select().from(services).where(eq(services.id, id));
-	return result[0];
+	const [service] = await db.select().from(services).where(eq(services.id, id));
+	return service;
 }
 
 export async function insertService(data: InsertService) {
