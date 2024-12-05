@@ -9,3 +9,6 @@ export const services = pgTable("services", {
 		.notNull()
 		.$onUpdate(() => new Date()),
 });
+
+export type InsertService = typeof services.$inferInsert;
+export type SelectServices = typeof services.$inferSelect;
