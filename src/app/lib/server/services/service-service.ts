@@ -14,15 +14,7 @@ export async function insertServiceForm(form: FormData) {
 	revalidatePath("/dashboard/services");
 }
 
-export async function deleteServiceFormAction(form: FormData) {
-	const id = Number(form.get("id"));
-
-	if (!isNaN(id)) {
-		await deleteService(id);
-	} else {
-		throw new Error("Invalid ID");
-	}
-
+export async function deleteServiceFormAction(id: number) {
+	await deleteService(id);
 	revalidatePath("/dashboard/services");
-	return [];
 }

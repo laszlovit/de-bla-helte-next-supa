@@ -4,9 +4,7 @@ import { deleteServiceFormAction } from "@/app/lib/server/services/service-servi
 
 export const DeleteServiceForm = ({ id, children }: { id: number; children: React.ReactNode }) => {
 	async function submit() {
-		const formData = new FormData();
-		formData.append("id", id.toString());
-		await deleteServiceFormAction(formData);
+		await deleteServiceFormAction(id);
 	}
 
 	return (
