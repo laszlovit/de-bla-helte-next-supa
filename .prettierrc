@@ -3,5 +3,6 @@
 	"singleQuote": false,
 	"printWidth": 100,
 	"trailingComma": "all",
-	"plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
+	"plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+	"tailwindStylesheet": "./app/globals.css"
 }
